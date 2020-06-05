@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.36.0 -->
+<interface>
+  <requires lib="gtk+" version="3.22"/>
+  <object class="GtkMenu">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+  </object>
+  <object class="GtkWindow" id="main_window">
+    <property name="can_focus">False</property>
+    <property name="default_width">650</property>
+    <property name="default_height">800</property>
+    <child>
+      <object class="GtkPaned">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkButton" id="btn_tab1">
+                <property name="label" translatable="yes">Lookup</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btn_tab1_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_tab2">
+                <property name="label" translatable="yes">Reverse Lookup</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btn_tab2_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_tab3">
+                <property name="label" translatable="yes">Port Scan</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btn_tab3_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="resize">False</property>
+            <property name="shrink">True</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkNotebook" id="notebook">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="show_tabs">False</property>
+            <child>
+              <object class="GtkFixed">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">DNS Lookup pozwala znaleźć adres ip na podstawie podanej nazwy domeny</property>
+                  </object>
+                  <packing>
+                    <property name="x">28</property>
+                    <property name="y">78</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="lookup_entry">
+                    <property name="width_request">400</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="placeholder_text" translatable="yes">np. www.onet.pl</property>
+                  </object>
+                  <packing>
+                    <property name="x">19</property>
+                    <property name="y">156</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="width_request">50</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Wprowadź nazwę domeny</property>
+                  </object>
+                  <packing>
+                    <property name="x">22</property>
+                    <property name="y">128</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="lookup_btn">
+                    <property name="label" translatable="yes">Lookup</property>
+                    <property name="width_request">30</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_lookup_btn_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">419</property>
+                    <property name="y">157</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkGrid" id="lookup_resGrid">
+                    <property name="width_request">400</property>
+                    <property name="height_request">53</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width_request">220</property>
+                        <property name="height_request">30</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">NAZWA DOMENY</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width_request">220</property>
+                        <property name="height_request">30</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">ADRES IP HOSTA</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="lookup_dns_res">
+                        <property name="width_request">220</property>
+                        <property name="height_request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="lookup_ip_res">
+                        <property name="width_request">220</property>
+                        <property name="height_request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">34</property>
+                    <property name="y">379</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lookup_err">
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Wystąpił błąd, sprawdź nazwe wpisanej domeny</property>
+                    <attributes>
+                      <attribute name="foreground" value="#efef29292929"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="x">123</property>
+                    <property name="y">212</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">page 1</property>
+              </object>
+              <packing>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFixed">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Reverse DNS Lookup pozwala znaleźć nazwe domeny na podstawie podanego adresu IP.</property>
+                  </object>
+                  <packing>
+                    <property name="x">28</property>
+                    <property name="y">78</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="rlookup_entry">
+                    <property name="width_request">400</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="placeholder_text" translatable="yes">np. 8.8.8.8</property>
+                  </object>
+                  <packing>
+                    <property name="x">19</property>
+                    <property name="y">156</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="width_request">50</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Wprowadź adres IP</property>
+                  </object>
+                  <packing>
+                    <property name="x">22</property>
+                    <property name="y">128</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="rlookup_btn">
+                    <property name="label" translatable="yes">Lookup</property>
+                    <property name="width_request">30</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_rlookup_btn1_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">419</property>
+                    <property name="y">157</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkGrid" id="rlookup_resGrid">
+                    <property name="width_request">400</property>
+                    <property name="height_request">53</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width_request">220</property>
+                        <property name="height_request">30</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">ADRES IP HOSTA</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width_request">220</property>
+                        <property name="height_request">30</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">NAZWA DOMENY</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="rlookup_ip_res">
+                        <property name="width_request">220</property>
+                        <property name="height_request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="rlookup_dns_res">
+                        <property name="width_request">220</property>
+                        <property name="height_request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">34</property>
+                    <property name="y">379</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="rlookup_err">
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Wystąpił błąd, sprawdź  wpisany adres IP</property>
+                    <attributes>
+                      <attribute name="foreground" value="#efef29292929"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="x">123</property>
+                    <property name="y">212</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">page 2</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFixed">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Skaner Portów poznawala sprawdzić które porty są otwarte na podanym adresie.</property>
+                  </object>
+                  <packing>
+                    <property name="x">29</property>
+                    <property name="y">50</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="scan_entry">
+                    <property name="width_request">300</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="placeholder_text" translatable="yes">np www.onet.pl, 8.8.8.8</property>
+                  </object>
+                  <packing>
+                    <property name="x">35</property>
+                    <property name="y">161</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="scan_port1_entry">
+                    <property name="width_request">86</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="placeholder_text" translatable="yes">Port początkowy</property>
+                  </object>
+                  <packing>
+                    <property name="x">35</property>
+                    <property name="y">221</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="scan_port2_entry">
+                    <property name="width_request">92</property>
+                    <property name="height_request">32</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="placeholder_text" translatable="yes">Port końcowy</property>
+                  </object>
+                  <packing>
+                    <property name="x">35</property>
+                    <property name="y">258</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="scan_btn">
+                    <property name="label" translatable="yes">Scan</property>
+                    <property name="width_request">49</property>
+                    <property name="height_request">25</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_scan_btn_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">365</property>
+                    <property name="y">161</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Wprowadź adres hosta, port początkowy i port końcowy</property>
+                  </object>
+                  <packing>
+                    <property name="x">36</property>
+                    <property name="y">110</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow" id="scan_res_win">
+                    <property name="width_request">400</property>
+                    <property name="height_request">300</property>
+                    <property name="can_focus">True</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkViewport">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkViewport">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <child>
+                              <object class="GtkTextView" id="scan_res_text">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="editable">False</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">42</property>
+                    <property name="y">378</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="scan_err">
+                    <property name="width_request">0</property>
+                    <property name="height_request">0</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Wystąpił błąd, sprawdź wprowadzony adres lub numery portów</property>
+                    <attributes>
+                      <attribute name="foreground" value="#efef29292929"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="x">89</property>
+                    <property name="y">314</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">page 3</property>
+              </object>
+              <packing>
+                <property name="position">2</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="resize">True</property>
+            <property name="shrink">True</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+  </object>
+</interface>
