@@ -61,6 +61,20 @@
                 <property name="position">2</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkButton" id="btn_tab4">
+                <property name="label" translatable="yes">Ping</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btn_tab4_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="resize">False</property>
@@ -119,6 +133,7 @@
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <signal name="clicked" handler="on_lookup_btn_clicked" swapped="no"/>
                   </object>
@@ -262,6 +277,7 @@
                     <property name="height_request">20</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <signal name="clicked" handler="on_rlookup_btn1_clicked" swapped="no"/>
                   </object>
@@ -425,6 +441,7 @@
                     <property name="height_request">25</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <signal name="clicked" handler="on_scan_btn_clicked" swapped="no"/>
                   </object>
@@ -505,6 +522,128 @@
               </object>
               <packing>
                 <property name="position">2</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFixed">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="width_request">510</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Ping pozwala diagnozować połączenie sieciowe, pokazuje czy istnieje połączenie miedzy hostami oraz jakie jest opóźnienie.</property>
+                    <property name="wrap">True</property>
+                    <property name="wrap_mode">char</property>
+                  </object>
+                  <packing>
+                    <property name="x">13</property>
+                    <property name="y">78</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="ping_entry">
+                    <property name="width_request">400</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="placeholder_text" translatable="yes">np. www.onet.pl, 8.8.8.8</property>
+                  </object>
+                  <packing>
+                    <property name="x">19</property>
+                    <property name="y">156</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="width_request">50</property>
+                    <property name="height_request">30</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Wprowadź adres hosta</property>
+                  </object>
+                  <packing>
+                    <property name="x">22</property>
+                    <property name="y">128</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="ping_btn">
+                    <property name="label" translatable="yes">Ping</property>
+                    <property name="width_request">30</property>
+                    <property name="height_request">20</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_ping_btn_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">419</property>
+                    <property name="y">157</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="ping_err">
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Wystąpił błąd, sprawdź wpisany adres</property>
+                    <attributes>
+                      <attribute name="foreground" value="#efef29292929"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="x">123</property>
+                    <property name="y">212</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow" id="ping_res_win">
+                    <property name="width_request">300</property>
+                    <property name="height_request">200</property>
+                    <property name="can_focus">True</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkViewport">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkViewport">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <child>
+                              <object class="GtkTextView" id="ping_res_text">
+                                <property name="width_request">400</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="editable">False</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">75</property>
+                    <property name="y">350</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">page 4</property>
+              </object>
+              <packing>
+                <property name="position">3</property>
                 <property name="tab_fill">False</property>
               </packing>
             </child>

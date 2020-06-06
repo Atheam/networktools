@@ -1,5 +1,3 @@
-#include <gtk/gtk.h>
-#include <gmodule.h>
 #include "widgets.h"
 
 
@@ -44,6 +42,11 @@ int windowsetup(int argc, char **argv) {
     scan_res_text = (GtkTextView *)GTK_WIDGET(gtk_builder_get_object(builder,"scan_res_text"));
     scan_res_win = GTK_WIDGET(gtk_builder_get_object(builder,"scan_res_win"));
     scan_err = GTK_WIDGET(gtk_builder_get_object(builder,"scan_err"));
+
+    ping_entry = (GtkEntry *) GTK_WIDGET(gtk_builder_get_object(builder,"ping_entry"));
+    ping_res_text = (GtkTextView *)GTK_WIDGET(gtk_builder_get_object(builder,"ping_res_text"));
+    ping_res_win = GTK_WIDGET(gtk_builder_get_object(builder,"ping_res_win"));
+    ping_err = GTK_WIDGET(gtk_builder_get_object(builder,"ping_err"));
 
 
     gtk_widget_show(window);

@@ -26,5 +26,10 @@ extern GtkTextView *scan_res_text;
 extern GtkWidget *scan_res_win;
 extern GtkWidget * scan_err;
 
+extern GtkEntry * ping_entry;
+extern GtkTextView *ping_res_text;
+extern GtkWidget *ping_res_win;
+extern GtkWidget *ping_err;
+
 
 #endif //TOOLS_WIDGETS_H

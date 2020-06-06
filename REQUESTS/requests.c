@@ -1,7 +1,75 @@
 #include <stdio.h>
-#include <winsock2.h>
 #include "requests.h"
+#include <winsock2.h>
+#include <iphlpapi.h>
+#include <icmpapi.h>
 
+
+
+
+//if no errors occur ping returns pointer to icmpReplyInfo structure otherwise returns NULL
+struct icmpReplyInfo* ping(const char *name){
+
+    HANDLE hIcmpFile;
+    unsigned long ipaddr;
+    int return_value;
+    char SendData[32] = "Data Buffer";
+
+    if((ipaddr = inet_addr(name)) == INADDR_NONE){
+
+        struct hostent * host;
+
+        WSADATA wsaData;
+        WORD wVersionRequested = MAKEWORD(2, 2);
+        WSAStartup(wVersionRequested,&wsaData);
+
+        if((host = gethostbyname(name)) != NULL){
+
+
+            struct in_addr addr;
+            addr = *(struct in_addr *) host->h_addr_list[0];
+            ipaddr = inet_addr(inet_ntoa(addr));
+        }
+        else{
+            return NULL;
+        }
+    }
+
+    LPVOID ReplyBuffer;
+    DWORD ReplySize;
+
+    hIcmpFile = IcmpCreateFile();
+
+
+
+    if (hIcmpFile == INVALID_HANDLE_VALUE) {
+        return NULL;
+    }
+
+    ReplySize = sizeof(ICMP_ECHO_REPLY) + sizeof(SendData);
+    ReplyBuffer = malloc(ReplySize);
+    return_value = IcmpSendEcho(hIcmpFile, ipaddr, SendData, sizeof(SendData),
+                                NULL, ReplyBuffer, ReplySize, 1000);
+
+    if(return_value != 0){
+
+        struct icmpReplyInfo * replyInfo = malloc(sizeof(struct icmpReplyInfo));
+        PICMP_ECHO_REPLY pEchoReply = (PICMP_ECHO_REPLY)ReplyBuffer;
+        struct in_addr ReplyAddr;
+
+        ReplyAddr.S_un.S_addr = pEchoReply -> Address;
+        replyInfo->address = inet_ntoa(ReplyAddr);
+        replyInfo->status = pEchoReply ->Status;
+        replyInfo->dataSize = pEchoReply ->DataSize;
+        replyInfo->time = pEchoReply ->RoundTripTime;
+
+        return replyInfo;
+    }
+    else{
+        return NULL;
+    }
+
+}
 
 
 //port info is returned as a function argument array, 0 value in array means port closed 1 means port open
@@ -24,7 +92,7 @@ int portscan(const char *ipaddr, int from, int to,int *tab){
     struct hostent *host;
 
 
-    if(isdigit(ipaddr[0])){
+    if(inet_addr(ipaddr) != INADDR_NONE){
 
         client.sin_addr.s_addr = inet_addr(ipaddr);
     }
@@ -40,7 +108,7 @@ int portscan(const char *ipaddr, int from, int to,int *tab){
 
     struct timeval time_out;
     time_out.tv_sec = 0;
-    time_out.tv_usec = 300000;
+    time_out.tv_usec = 200000;
     unsigned long iMode = 1;
 
 
