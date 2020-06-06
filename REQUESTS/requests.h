@@ -1,7 +1,3 @@
-//
-// Created by adam5 on 03.06.2020.
-//
-
 
 #ifndef TOOLS_REQUESTS_H
 #define TOOLS_REQUESTS_H

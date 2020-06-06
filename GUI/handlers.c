@@ -1,6 +1,4 @@
-//
-// Created by adam5 on 05.06.2020.
-//
+
 #include "../REQUESTS/requests.h"
 #include <string.h>
 #include <stdlib.h>

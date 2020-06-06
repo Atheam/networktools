@@ -1,6 +1,3 @@
-//
-// Created by adam5 on 05.06.2020.
-//
 
 #ifndef TOOLS_HANDLERS_H
 #define TOOLS_HANDLERS_H

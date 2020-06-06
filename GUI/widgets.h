@@ -1,6 +1,4 @@
-//
-// Created by adam5 on 05.06.2020.
-//
+
 #ifndef TOOLS_WIDGETS_H
 #define TOOLS_WIDGETS_H
 #include <gtk/gtk.h>
