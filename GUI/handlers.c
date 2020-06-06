@@ -125,6 +125,7 @@ G_MODULE_EXPORT void on_ping_btn_clicked(GtkButton* b){
     if(reply == NULL){
         gtk_widget_show(ping_err);
         gtk_widget_hide(ping_res_win);
+        free(reply);
         return;
     }
 
@@ -144,6 +145,7 @@ G_MODULE_EXPORT void on_ping_btn_clicked(GtkButton* b){
             usleep(500000);
         }
         }
+        free(reply);
     }
 
     char text[128];
