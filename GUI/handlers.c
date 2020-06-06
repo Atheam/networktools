@@ -86,7 +86,7 @@ G_MODULE_EXPORT void on_scan_btn_clicked(GtkButton *b){
 
 
             if (tab[i] == 1) {
-                status = "opened\n";
+                status = "open\n";
             } else {
                 status = "closed\n";
             }
